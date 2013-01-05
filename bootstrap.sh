@@ -2,6 +2,13 @@
 cd "$(dirname "$0")"
 git pull
 function doIt() {
+    if [ ! -e /usr/local/php5 ]; then
+        read -p "Install PHP 5.4? (y/n) " -n 1
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            curl -s http://php-osx.liip.ch/install.sh | bash -s 5.4
+        fi
+    fi
     rsync --exclude ".git/" --exclude ".DS_Store" --exclude ".gitconfig" --exclude "bootstrap.sh" --exclude "README.md" --exclude "init" --exclude "Sublime Text 2" -av . ~
     if [ -f ~/.extra ]; then
         echo "These changes have been made in the .extra.dist file, please handle these manually"
