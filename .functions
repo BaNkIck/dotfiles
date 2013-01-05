@@ -144,3 +144,11 @@ function unquarantine() {
         xattr -r -d "$attribute" "$@"
     done
 }
+
+# Git PS1 (http://effectif.com/git/config)
+function __git_ps1 () {
+    local b="$(git symbolic-ref HEAD 2>/dev/null)";
+    if [ -n "$b" ]; then
+        printf " (%s)" "${b##refs/heads/}";
+    fi
+}
