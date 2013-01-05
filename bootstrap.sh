@@ -10,11 +10,15 @@ function doIt() {
         mv ~/.extra.dist ~/.extra
     fi
     # Handle .gitconfig file
-    cat .gitconfig > ~/.gitconfig_tmp
-    if [ -f ~/.gitconfig]; then
-        cat ~/.gitconfig >> ~/.gitconfig_tmp
+    if [ -f ~/.gitconfig ] && ! grep -q "\!\!\! dotfiles .gitconfig inclued \!\!\!" ~/.gitconfig; then
+        cat .gitconfig > ~/.gitconfig_tmp
+        if [ -f ~/.gitconfig ]; then
+            cat ~/.gitconfig >> ~/.gitconfig_tmp
+        fi
+        mv ~/.gitconfig_tmp ~/.gitconfig
+    elif [ ! -f ~/.gitconfig ]; then
+        cp .gitconfig ~/.gitconfig
     fi
-    mv ~/.gitconfig_tmp ~/.gitconfig
     # if [ -d ~/Library ]; then
     #     if [ ! -d ~/Library/Application\ Support/Sublime\ Text\ 2/Installed\ Packages-old ]; then
     #         mv ~/Library/Application\ Support/Sublime\ Text\ 2/Installed\ Packages ~/Library/Application\ Support/Sublime\ Text\ 2/Installed\ Packages-old

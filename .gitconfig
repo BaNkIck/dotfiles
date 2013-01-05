@@ -1,3 +1,8 @@
+# Dot not remove nor modify the next commented lines.
+#
+# !!! dotfiles .gitconfig inclued !!!
+#
+
 [alias]
 	# View the SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph
@@ -74,3 +79,5 @@
 
 [credential]
 	helper = osxkeychain
+
+# Current .gitconfig file will be appended below this line
