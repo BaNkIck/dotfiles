@@ -18,6 +18,8 @@ alias s="subl ."
 alias o="open"
 alias oo="open ."
 
+alias S="cd ~/Sites"
+
 alias hist='history | grep $1' #Requires one input
 
 # Detect which `ls` flavor is in use
