@@ -17,6 +17,42 @@ function doIt() {
         fi
     fi
 
+    # Install Composer
+    if [ ! -e /usr/local/bin/composer ]; then
+        read -p "Install Composer? (y/n) " -n 1
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            source software/composer.sh
+        fi
+    fi
+
+    # Install MacPorts
+    if [ ! -e /opt/local/bin/port ]; then
+        read -p "Install MacPorts? (y/n) " -n 1
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            source software/macports.sh
+        fi
+    fi
+
+    # Install Homebrew
+    if [ ! -e /usr/local/bin/brew ]; then
+        read -p "Install Homebrew? (y/n) " -n 1
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            source software/homebrew.sh
+        fi
+    fi
+
+    # Install Sublime Text 2
+    if [ ! -e "/Applications/Sublime Text 2.app" ]; then
+        read -p "Install Sublime Text 2? (y/n) " -n 1
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            source software/sublimetext2-dev.sh
+        fi
+    fi
+
     # Copy all files to home directory
     rsync --exclude ".git/" --exclude ".DS_Store" --exclude ".gitconfig" --exclude "bootstrap.sh" --exclude "README.md" --exclude "init" --exclude "data" --exclude "software" -av . ~
 
