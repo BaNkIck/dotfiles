@@ -46,17 +46,17 @@ function doIt() {
         fi
     done
 
-    # Handle Sublime Text 2 files
-    # if [ -d ~/Library ]; then
-    #     if [ ! -d ~/Library/Application\ Support/Sublime\ Text\ 2/Installed\ Packages-old ]; then
-    #         mv ~/Library/Application\ Support/Sublime\ Text\ 2/Installed\ Packages ~/Library/Application\ Support/Sublime\ Text\ 2/Installed\ Packages-old
-    #         mv ~/Library/Application\ Support/Sublime\ Text\ 2/Packages ~/Library/Application\ Support/Sublime\ Text\ 2/Packages-old
-    #         mv ~/Library/Application\ Support/Sublime\ Text\ 2/Pristine\ Packages ~/Library/Application\ Support/Sublime\ Text\ 2/Pristine\ Packages-old
-    #         ln -sf `pwd`/Sublime\ Text\ 2/Installed\ Packages ~/Library/Application\ Support/Sublime\ Text\ 2/Installed\ Packages
-    #         ln -sf `pwd`/Sublime\ Text\ 2/Packages ~/Library/Application\ Support/Sublime\ Text\ 2/Packages
-    #         ln -sf `pwd`/Sublime\ Text\ 2/Pristine\ Packages ~/Library/Application\ Support/Sublime\ Text\ 2/Pristine\ Packages
-    #     fi
-    # fi
+    # Handle Sublime Text 2 Packages
+    ST_LB_PACKAGES=~/Library/Application\ Support/Sublime\ Text\ 2/Packages
+    ST_DB_PACKAGES=~/Dropbox/Sublime\ Text\ 2/Packages
+    if [ -d "$ST_DB_PACKAGES" ]; then
+        if [ -d "$ST_LB_PACKAGES" ]; then
+            mv "$ST_LB_PACKAGES" "$ST_LB_PACKAGES""_old"
+        fi
+        if [ ! -e "$ST_LB_PACKAGES" ]; then
+            ln -s "$ST_DB_PACKAGES" "$ST_LB_PACKAGES"
+        fi
+    fi
 }
 
 
