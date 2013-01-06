@@ -1,12 +1,14 @@
 # PATH additions
 for another_bin in \
     $HOME/bin \
+    $HOME/.rbenv/bin \
     /usr/local/php5/bin \
-    $HOME/.rbenv/bin
+    /usr/local/bin \
+    /usr/local/sbin \
+    /opt/local/bin
 do
     [[ -e $another_bin ]] && export PATH=$another_bin:$PATH
 done
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # Git credentials
 #GIT_AUTHOR_NAME="Roderik van der Veer"
