@@ -136,6 +136,12 @@ function pman {
 #     alias man="pman"
 # fi
 
+# Open a manpage in Sublime Text 2
+function sman {
+	# Currently, output gets wrapped. Looking for a solution...
+	man "${1}" | col -bx | subl
+}
+
 alias kd="cd /opt/kDeploy/tools"
 alias ks="cd /opt/kServer"
 
