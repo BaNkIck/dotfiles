@@ -39,6 +39,13 @@ function doIt() {
         cp .gitconfig ~/.gitconfig
     fi
 
+    # Create .vim structure for backups, undo history and swap files
+    for fldr in backups swaps undo; do
+        if [ ! -d ~/.vim/$fldr ]; then
+            mkdir -p ~/.vim/$fldr
+        fi
+    done
+
     # Handle Sublime Text 2 files
     # if [ -d ~/Library ]; then
     #     if [ ! -d ~/Library/Application\ Support/Sublime\ Text\ 2/Installed\ Packages-old ]; then
