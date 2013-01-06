@@ -31,13 +31,13 @@ curl -L "$url" -o "${download_dir}/${zip}"
 unzip -q "${download_dir}/${zip}" -d /Applications/
 rm -rf "$download_dir"
 
-cd
-git clone git://github.com/sstephenson/rbenv.git .rbenv
-mkdir -p ~/.rbenv/plugins
-cd ~/.rbenv/plugins
-git clone git://github.com/sstephenson/ruby-build.git
-export PATH="$HOME/.rbenv/bin:$PATH"
-rbenv rehash
-rbenv install 1.9.3-p194
-rbenv rehash
-rbenv global 1.9.3-p194
+# cd
+# git clone git://github.com/sstephenson/rbenv.git .rbenv
+# mkdir -p ~/.rbenv/plugins
+# cd ~/.rbenv/plugins
+# git clone git://github.com/sstephenson/ruby-build.git
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# rbenv rehash
+# rbenv install 1.9.3-p194
+# rbenv rehash
+# rbenv global 1.9.3-p194
