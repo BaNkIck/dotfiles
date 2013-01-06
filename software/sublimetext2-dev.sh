@@ -14,7 +14,7 @@ function installSublime() {
 	rm -rf "$DOWNLOAD_DIR"
 }
 
-if [ ! -d "/Applications/Sublime Text 2.app" ]; then
+if [ ! -e "/Applications/Sublime Text 2.app" ]; then
 	installSublime
 else
 	echo "Sublime Text 2 already installed. Nothing changed."

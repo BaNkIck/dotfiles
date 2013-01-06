@@ -12,7 +12,7 @@ function installMacPorts() {
 	sudo /opt/local/bin/port -v selfupdate
 }
 
-if [ ! -f "/opt/local/bin/port" ]; then
+if [ ! -e "/opt/local/bin/port" ]; then
 	installMacPorts
 else
 	echo "MacPorts already installed. Nothing changed."
