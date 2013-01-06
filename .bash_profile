@@ -42,3 +42,8 @@ fi
 if [ -f ~/.ssh/id_rsa ]; then
     ssh-add ~/.ssh/id_rsa
 fi
+
+# Include .profile if exists
+if [ -f ~/.profile ]; then
+	source ~/.profile
+fi
