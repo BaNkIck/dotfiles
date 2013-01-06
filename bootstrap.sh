@@ -9,7 +9,7 @@ function doIt() {
             curl -s http://php-osx.liip.ch/install.sh | bash -s 5.4
         fi
     fi
-    rsync --exclude ".git/" --exclude ".DS_Store" --exclude ".gitconfig" --exclude "bootstrap.sh" --exclude "README.md" --exclude "init" --exclude "Sublime Text 2" -av . ~
+    rsync --exclude ".git/" --exclude ".DS_Store" --exclude ".gitconfig" --exclude "bootstrap.sh" --exclude "README.md" --exclude "init" --exclude "data" --exclude "software" -av . ~
     if [ -f ~/.extra ]; then
         echo "These changes have been made in the .extra.dist file, please handle these manually"
         diff .extra.dist ~/.extra
