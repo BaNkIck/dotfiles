@@ -17,7 +17,7 @@ function doIt() {
         mv ~/.extra.dist ~/.extra
     fi
     # Handle .gitconfig file
-    if [ -f ~/.gitconfig ] && ! grep -q "\!\!\! dotfiles .gitconfig inclued \!\!\!" ~/.gitconfig; then
+    if [ -f ~/.gitconfig ] && ! grep -q "\!\!\! dotfiles .gitconfig included \!\!\!" ~/.gitconfig; then
         cat .gitconfig > ~/.gitconfig_tmp
         if [ -f ~/.gitconfig ]; then
             cat ~/.gitconfig >> ~/.gitconfig_tmp
