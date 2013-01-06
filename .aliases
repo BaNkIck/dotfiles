@@ -19,6 +19,16 @@ alias o="open"
 alias oo="open ."
 
 alias S="cd ~/Sites"
+alias svn_update_dry="svn merge --dry-run -r BASE:HEAD ${1:-.}"
+alias svn_ignored="svn propget svn:ignore ${1:-.}"
+alias svn_merge_info="svn propget svn:mergeinfo ${1:-.}"
+function svn_revert_all () {
+	read -p "Warning: this action will completely revert all files and folders in '${1:-.}' and delete all unversioned files. This actions cannot be undone. Are you sure? (y/n) " -n 1
+	echo
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+		svn revert --depth=infinity "${1:-.}" && svn st | grep "^?" | sed -E "s/.{8}//" | xargs -Ixx rm -rf xx
+	fi
+}
 
 alias hist='history | grep $1' #Requires one input
 
