@@ -17,6 +17,15 @@ function doIt() {
         fi
     fi
 
+    # Install PHPUnit
+    if [ ! -e /usr/local/php5/bin/phpunit ]; then
+        read -p "Install PHPUnit? (y/n) " -n 1
+        echo
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            source software/phpunit.sh
+        fi
+    fi
+
     # Install Composer
     if [ ! -e /usr/local/bin/composer ]; then
         read -p "Install Composer? (y/n) " -n 1
