@@ -11,11 +11,11 @@ brew upgrade
 brew install bash-completion git
 
 # Install GNU core utilities (those that come with OS X are outdated)
-brew install coreutils
+# brew install coreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
-brew install findutils
+# brew install findutils
 # Install Bash 4
-brew install bash
+# brew install bash
 # Install wget
 brew install wget
 
